@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <li
+        *ngFor="let bridge of this.bridges;"
+        title="{{bridge.name}}"
+        (click)="this.onBridgeSelected(bridge)"
+        >{{bridge.name | titlecase}}</li>
+
+    </ul>
+</nav>
