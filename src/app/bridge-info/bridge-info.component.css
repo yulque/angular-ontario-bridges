@@ -1,0 +1,25 @@
+#bridge-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#bridge-info-panel {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+
+  background-color: #344648;
+  color: #fbe0c3;
+  border-bottom: 2px solid #344648;
+}
+#leaflet-map {
+  flex: 5;
+  height: 100%;
+  width: 100%;
+}

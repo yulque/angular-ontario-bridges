@@ -9,11 +9,11 @@ import {Bridge} from './bridge';
 export class AppComponent {
   title = 'bridge';
 
-  currentBridge: Bridge | undefined;
+  currentBridge: Bridge ;
 
   handleBridgeChange(bridge: Bridge) : void {
     console.log('handleBridgeChange', bridge);
     this.currentBridge = bridge;
-    console.log(this.currentBridge);
+    console.log("current bridge", this.currentBridge);
   }
 }
