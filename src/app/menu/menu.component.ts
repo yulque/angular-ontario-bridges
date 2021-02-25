@@ -11,12 +11,8 @@ export class MenuComponent implements OnInit {
 
   bridges : Array<Bridge> = Bridges;
 
-  @Output() bridgeSelected: EventEmitter<Bridge> = new EventEmitter();
-  constructor() { }
-
-  onBridgeSelected(bridge: Bridge): void {
-    console.log('onBridgeSelected', bridge);
-    this.bridgeSelected.emit(bridge);
+  trackByBridges(index: number, bridge: Bridge) : string {
+    return bridge.id;
   }
   ngOnInit(): void {
   }
