@@ -1,9 +1,9 @@
 <h1>Ontario Bridges</h1>
     <nav>
     <ul>
-        <li [routerLink]="['/bridges', bridge.id]" routerLinkActive="selected"
+        <li 
         *ngFor="let bridge of bridges; trackBy: trackByBridges"
-         ><a>{{bridge.name | titlecase}}</a></li>
+         ><a [routerLink]="['/bridges', bridge.id]" routerLinkActive="selected">{{bridge.name | titlecase}}</a></li>
 
     </ul>
 </nav>

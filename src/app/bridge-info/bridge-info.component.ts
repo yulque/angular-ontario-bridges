@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Bridge } from '../bridge';
 import { ActivatedRoute, Params} from '@angular/router';
+import { DataManagerService } from '../data-manager.service';
 import { Subscription } from 'rxjs'
 
 @Component({
@@ -12,15 +13,18 @@ export class BridgeInfoComponent implements OnInit {
 
   bridge: Bridge;
   paramSubscription: Subscription;
+
   constructor(
-    private route: ActivatedRoute
-    ) {
-    
-   }
+    private route: ActivatedRoute,
+    private dataService: DataManagerService
+    ) {}
 
   ngOnInit(): void {
-    //this.route.snapshot.params.id);
-    this.route.params.subscribe((params: Params)=> console.log(params.id));
+    //console.log(this.route.snapshot.params.id);
+    this.route.params.subscribe((params: Params)=>
+    this.dataService.getBridge(params.id).subscribe(
+      data=> this.bridge = data
+    ) )
   }
 
   ngOnDestroy(): void {

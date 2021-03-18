@@ -21,7 +21,6 @@ export class BridgeInfoMapComponent implements OnInit, AfterViewInit, OnChanges 
   }
 
  ngOnChanges(changes: SimpleChanges): void {
-   console.log('in simple changes');
    console.log('this.map is :',this.map);
     if(!this.map){
       return;
@@ -29,6 +28,7 @@ export class BridgeInfoMapComponent implements OnInit, AfterViewInit, OnChanges 
     if(changes.bridge.currentValue){
       const {lat, lng, name} = changes.bridge.currentValue;
       this.map.update(lat,lng, name);
+      console.log("update");
  }
  }
 

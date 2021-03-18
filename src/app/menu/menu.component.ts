@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {Bridge} from '../bridge';
-import {Bridges } from '../bridges'
+import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service';
+import {BridgeId} from '../bridge';
+
 
 @Component({
   selector: 'app-menu',
@@ -9,12 +10,20 @@ import {Bridges } from '../bridges'
 })
 export class MenuComponent implements OnInit {
 
-  bridges : Array<Bridge> = Bridges;
+  bridges : BridgeId[];
+  
+  constructor(
+    // inject our data service
+    private dataService: DataManagerService
+    ){}
 
-  trackByBridges(index: number, bridge: Bridge) : string {
+  trackByBridges(index: number, bridge: BridgeId) : string {
     return bridge.id;
   }
   ngOnInit(): void {
+    this.dataService
+        .getBridges()
+        .subscribe(data => this.bridges = data);
   }
 
 }
